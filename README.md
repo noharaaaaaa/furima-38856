@@ -1,7 +1,6 @@
 # テーブル設計
 
 ## usersテーブル
-
 | Column             | Type       | Options                        |
 |nickname            |string      |null: false                     |
 |email               |string      |null: false, unique: true       |
@@ -13,12 +12,10 @@
 |date_of_birth       |date        |null: false                     |
 
 ### Association
-
 has_many :items
 has_many :orders
 
 ## itemsテーブル
-
 | Column             | Type       | Options                        |
 |name                |string      |null: false                     |
 |description         |text        |null: false                     |
@@ -31,25 +28,21 @@ has_many :orders
 |user                |reference   |foreign_key: true               |
 
 ### Association
-
 has_one_attached :image
 has_one :order
 belongs_to :user
 
 ## ordersテーブル
-
 | Column             | Type       | Options                        |
 |item                |reference   |foreign_key: true               |
 |user                |reference   |foreign_key: true               |
 
 ### Association
-
 belongs_to :user
 belongs_to :item
 has_one :address
 
 ## addresses
-
 | Column             | Type       | Options                        |
 |post_number         |string      |null: false,                    |
 |prefecture          |integer     |null: false,                    |
@@ -59,5 +52,4 @@ has_one :address
 |phone_number        |string      |null: false,                    |
 
 ### Association
-
 belongs_to :order
