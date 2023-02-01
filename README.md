@@ -19,13 +19,13 @@ has_many :orders
 | Column             | Type       | Options                        |
 |name                |string      |null: false                     |
 |description         |text        |null: false                     |
-|category            |string      |null: false,                    |
-|status              |string      |null: false,                    |
-|delivary_fee        |string      |null: false,                    |
-|prefecture          |string      |null: false,                    |
-|days                |string      |null: false,                    |
-|price               |string      |null: false,                    |
-|user                |reference   |foreign_key: true               |
+|category_id         |integer     |null: false,                    |
+|status_id           |integer     |null: false,                    |
+|delivery_fee_id     |integer     |null: false,                    |
+|prefecture_id       |integer     |null: false,                    |
+|days_id             |integer     |null: false,                    |
+|price               |integer     |null: false,                    |
+|user                |reference   |null: false, foreign_key: true  |
 
 ### Association
 has_one_attached :image
@@ -34,8 +34,8 @@ belongs_to :user
 
 ## ordersテーブル
 | Column             | Type       | Options                        |
-|item                |reference   |foreign_key: true               |
-|user                |reference   |foreign_key: true               |
+|item                |reference   |null: false, foreign_key: true  |
+|user                |reference   |null: false, foreign_key: true  |
 
 ### Association
 belongs_to :user
@@ -45,11 +45,12 @@ has_one :address
 ## addresses
 | Column             | Type       | Options                        |
 |post_number         |string      |null: false,                    |
-|prefecture          |integer     |null: false,                    |
+|prefecture_id       |integer     |null: false,                    |
 |city                |string      |null: false,                    |
 |address             |string      |null: false,                    |
 |building            |string      |                                |
 |phone_number        |string      |null: false,                    |
+|order               |reference   |null: false,                    |
 
 ### Association
 belongs_to :order
