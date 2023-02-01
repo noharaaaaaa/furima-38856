@@ -25,7 +25,7 @@ has_many :orders
 |prefecture_id       |integer     |null: false,                    |
 |days_id             |integer     |null: false,                    |
 |price               |integer     |null: false,                    |
-|user                |reference   |null: false, foreign_key: true  |
+|user                |references  |null: false, foreign_key: true  |
 
 ### Association
 has_one_attached :image
@@ -34,8 +34,8 @@ belongs_to :user
 
 ## ordersテーブル
 | Column             | Type       | Options                        |
-|item                |reference   |null: false, foreign_key: true  |
-|user                |reference   |null: false, foreign_key: true  |
+|item                |references  |null: false, foreign_key: true  |
+|user                |references  |null: false, foreign_key: true  |
 
 ### Association
 belongs_to :user
@@ -50,7 +50,7 @@ has_one :address
 |address             |string      |null: false,                    |
 |building            |string      |                                |
 |phone_number        |string      |null: false,                    |
-|order               |reference   |null: false,                    |
+|order               |references  |null: false, foreign_key: true  |
 
 ### Association
 belongs_to :order
