@@ -7,7 +7,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'ユーザー新規登録' do
-    # ユーザー新規登録についてのテストコードを記述します  
     context '新規登録できる場合' do
       it '各項目が全て正しく記入されていれば登録できる' do
         expect(@user).to be_valid
