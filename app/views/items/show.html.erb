@@ -8,11 +8,14 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう*購入機能実装後に実装 %>
-      <%#<div class="sold-out">%>
-      <%#  <span>Sold Out!!</span>%>
-      <%#</div>%>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
+
+      <%# 商品が売れている場合にsold outを表示 %>
+      <% if @item.order.present? %>
+        <div class="sold-out">
+          <span>Sold Out!!</span>
+        </div>
+      <% end %>
+
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -23,8 +26,8 @@
       </span>
     </div>
 
-    <%# ログイン状態の場合 %>
-    <% if user_signed_in? %>
+    <%# ログイン状態および出品状態の場合 %>
+    <% if user_signed_in? && @item.order == nil %>
       <%# ログインユーザーと出品者が同じ場合 %>
       <% if current_user.id == @item.user_id %>
         <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
@@ -32,7 +35,7 @@
         <%= link_to "削除", item_path, method: :delete, class:"item-destroy" %>
       <%# 商品未売時 %>
       <% else %>
-        <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+        <%= link_to "購入画面に進む", item_orders_path(@item.id), class:"item-red-btn"%>
       <% end %>
     <% end %>
 
