@@ -78,4 +78,5 @@ gem 'active_hash'
 gem 'payjp'
 gem "aws-sdk-s3", require: false
 
-gem 'mail', '2.7.1'
+gem 'mail', '2.7.1' #EC2に最新バージョン未対応のため旧バージョンにて取得
+gem 'rails-i18n' #日本語対応Gem

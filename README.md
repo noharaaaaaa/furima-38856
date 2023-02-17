@@ -2,6 +2,7 @@
 
 ## usersテーブル
 | Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
 |nickname            |string      |null: false                     |
 |email               |string      |null: false, unique: true       |
 |encrypted_password  |string      |null: false                     |
@@ -17,6 +18,7 @@ has_many :orders
 
 ## itemsテーブル
 | Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
 |name                |string      |null: false                     |
 |description         |text        |null: false                     |
 |category_id         |integer     |null: false,                    |
@@ -34,6 +36,7 @@ belongs_to :user
 
 ## ordersテーブル
 | Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
 |item                |references  |null: false, foreign_key: true  |
 |user                |references  |null: false, foreign_key: true  |
 
@@ -44,6 +47,7 @@ has_one :address
 
 ## addresses
 | Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
 |post_number         |string      |null: false,                    |
 |prefecture_id       |integer     |null: false,                    |
 |city                |string      |null: false,                    |
