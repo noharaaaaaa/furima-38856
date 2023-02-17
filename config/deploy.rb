@@ -32,4 +32,4 @@ namespace :deploy do
   end
 end
 
-set :branch, "main"
+set :branch, "main" #標準masterブランチで検索となるため、検索ブランチをmainに指定
